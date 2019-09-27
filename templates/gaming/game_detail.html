@@ -1,0 +1,91 @@
+{% extends 'gaming/base.html'%}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container" style="margin-top: 100px">
+	<div class="g-title">
+		<div class="title" style="direction: rtl;float: right;">تحميل لعبة  {{ object.title }}</div><br><br>
+		<!--div class="g-info" style="direction: rtl;float: right;"><span>{{ object.visit_num }} <i class="fas fa-eye"></i>  (مشاهدة) |  </span>  <span> {{ object.download_num }} <i class="fa fa-download" aria-hidden="true"></i>  (تحميلاً)</span></div-->
+	</div><br><br><br><br>
+	<div class="g-img" style="text-align: center;">
+		<img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" style="width: 408px;height: 445px;">
+	</div>
+
+	<div class="download-link">
+		<div>
+		<a href="{{ object.download_link }}" id="download"><div class="download"><i class="fa fa-download" aria-hidden="true"></i><span>  حمل اللعبة مجانا</span></div></a>
+		</div>
+		<div class="adventeges">
+			<ul class="list-unstyled">
+				<li><i class="fa fa-check" aria-hidden="true"></i>  بحجم</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>  مجانية</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>  كاملة</li>
+				<li><i class="fa fa-check" aria-hidden="true"></i>  خالية من الفيروسات</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="g-story" style="direction: rtl;float: right;">
+		<h4 style="direction: rtl;float: right;">حكاية اللعبة</h4><br><br>
+		<p style="text-align: center;">{{ object.description }}</p>
+	</div>
+	<div class="char">
+		<h4 style="direction: rtl;float: right;margin-bottom: 35px;">متطلبات النظام</h4><br><br>
+		<table class="table" style="direction: rtl;">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">الحد الأدنى لمتطلبات النظام</th>
+					<th scope="col">متطلبات النظام الموصى بها</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">المعالج (CPU)</th>
+					<td>{{ object.cpu_l }}</td>
+					<td>{{ object.cpu_h }}</td>
+				</tr>
+				<tr>
+					<th scope="row">بطاقة الرسومات (Graphic Card)</th>
+					<td>{{ object.graphic_card_l }}</td>
+					<td>{{ object.graphic_card_h }}</td>
+				</tr>
+				<tr>
+					<th scope="row">الرام (RAM)</th>
+					<td>{{ object.ram_l }}</td>
+					<td>{{ object.ram_h }}</td>
+				</tr>
+			</tbody>
+</table>
+	</div>
+</div>
+<div class="game-video">
+	<h3>فيديو يحكي قصة اللعبة</h3>
+	<iframe width="807" height="454" src="{{ object.youtube_iframe }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div class="same-games">
+	<h4 style="float: right;">ألعاب من نفس الصنف</h4><br><br><br>
+	<div>
+		<div class="row games-container">
+			{% for object in objects %}
+			<div class="cl-sm-12 cl-md-3 gm-card">
+				<div>
+					<img src="{{ MEDIA_URL}} {{ object.image.url }}" style="width: 280px;height: 300px;">
+					
+				</div>
+				<div class="game-description">
+					<div class="game-title">{{ object.title }}</div>
+					<div class="other-info">
+						<span style="float: left;color: gray;">{{ object.category }}</span>
+						<span style="float: right;color: purple;">{{ object.size }}  {{ object.size_type }}</span>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			
+		</div>
+	</div>
+</div>
+{% endblock %}

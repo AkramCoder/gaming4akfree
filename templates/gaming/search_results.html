@@ -1,0 +1,37 @@
+{% extends 'gaming/base.html'%}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container" style="margin-top: 100px">
+	<div class="g-title">
+		<div class="title" style="direction: rtl;float: right;">{{ item.title }}</div><br><br>
+	</div><br><br><br><br>
+	<div class="g-img" style="text-align: center;">
+		<a href="{{ item.get_absolute_url }}" id="dw"><img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" style="width: 408px;height: 445px;margin-bottom: 20px;"></a><br>
+		<a href="{{ item.get_absolute_url }}" id="dw">رابط التحميل من هنا</a>
+	</div>
+
+
+
+<div class="same-games">
+	<h4 style="float: right;">ألعاب من نفس الصنف</h4><br><br><br>
+	<div>
+		<div class="row games-container">
+			{% for object in objects %}
+			<div class="cl-sm-12 cl-md-3 gm-card">
+				<a href="{{ object.get_absolute_url }}"><div><img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" style="width: 280px;height: 300px;"></div>
+
+				<div class="game-description">
+					<div class="game-title">{{ object.title }}</div>
+					<div class="other-info">
+						<span style="float: left;color: gray;">{{ object.category }}</span>
+						<span style="float: right;color: purple;">{{ object.size }} {{ object.size_type }}</span>
+					</div>
+				</div>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

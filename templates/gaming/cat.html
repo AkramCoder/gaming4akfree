@@ -1,0 +1,129 @@
+{% extends 'gaming/base.html'%}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="content-box">
+	{% if n > 0 %}
+	<h4 style="float: right;">
+		ألعاب
+		{% if cat == 'fighting' %}
+		قتال
+		{% elif cat == 'strategy' %}
+		استراتيجية
+		{% elif cat == 'action' %}
+		أكشن
+		{% elif cat == 'horror' %}
+		رعب
+		{% elif cat == 'intelligence' %}
+		ذكاء
+		{% elif cat == 'straighten' %}
+		تصويب
+		{% elif cat == 'old-games' %}
+		العاب قديمة
+		{% elif cat == 'adventures' %}
+		مغامرات
+		{% elif cat == 'racing-cars' %}
+		السباق والسيارات
+		{% elif cat == 'reality-simulation' %}
+		محاكاة الواقع
+		{% elif cat == 'sport' %}
+		رياضة
+		{% elif cat == 'light-entertaining' %}
+		خفيفة و مسلية
+		{% elif cat == 'fiction' %}
+		خيال علمي
+		{% endif %}
+		({{ n }}) لعبة متوفرة
+	</h4><br><br><br>
+	<div>
+		<div class="row games-container">
+			{% for object in objects %}
+			<div class="cl-sm-12 cl-md-3 gm-card">
+				<div><img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" style="width: 280px;height: 300px;"></div>
+				<div class="game-description">
+					<div class="game-title">{{ object.title }}</div>
+					<div class="other-info">
+						<span style="float: left;color: gray;">{{ object.category }}</span>
+						<span style="float: right;color: purple;">{{ object.size }} {{ object.size_type }}</span>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+
+			
+		</div>
+	</div>
+	{% else %}
+	<div class="no-games">
+		<div>ليست هناك ألعاب من هذا الصنف</div>
+		<div>رجاءا ابحث عن ألعاب أخرى</div>
+		<hr>
+		<div>أو اختر من الألعاب التالية</div>
+		<div class="row" style="margin-top: 45px;">
+
+				<!-- Grid column -->
+				<div class="col-md-6 mb-md-0 mb-6">
+
+					
+
+					<ul class="list-unstyled">
+						<li>
+							<a href="{% url 'categories' 'action' %}">أكشن</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'fighting' %}">قتال</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'strategy' %}">استراتيجية</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'horror' %}">رعب</a>
+						</li>
+
+						<li>
+							<a href="{% url 'categories' 'intelligence' %}">ذكاء</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'straighten' %}">تصويب</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'old-games' %}">العاب قديمة</a>
+						</li>
+					</ul>
+
+				</div>
+				<div class="col-md-6 mb-md-0 mb-6">
+
+					
+
+					<ul class="list-unstyled">
+						<li>
+							<a href="{% url 'categories' 'adventures' %}">مغامرات</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'racing-cars' %}">السباق والسيارات</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'reality-simulation' %}">محاكاة الواقع</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'sport' %}">رياضة</a>
+						</li>
+
+						<li>
+							<a href="{% url 'categories' 'light-entertaining' %}">خفيفة و مسلية</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'fiction' %}">خيال علمي</a>
+						</li>
+					</ul>
+
+				</div>
+		</div>
+	</div>
+	{% endif %}
+</div>
+
+<link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet"> 
+{% endblock %}

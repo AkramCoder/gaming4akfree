@@ -1,0 +1,174 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" shrink-to-fit=no"/>
+	<title>{% block title %}Zawali.com: Online shopping pour Electroniques, Jeux videos, Automobile ect...{% endblock %}</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
+	
+</head>
+<body>
+	<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #1a1a1a !important;">
+		<a class="navbar-brand" href="{% url 'home' %}" style="color: white;">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				
+				<li class="nav-item dropdown">
+					<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: black;border: 1px;">
+    أصناف الألعاب
+  </button>
+  <div class="dropdown-menu" style="direction: rtl;">
+    <a class="dropdown-item" href="{% url 'categories' 'action' %}">أكشن</a>
+    <a class="dropdown-item" href="{% url 'categories' 'fighting' %}">قتال</a>
+    <a class="dropdown-item" href="{% url 'categories' 'strategy' %}">استراتيجية</a>
+    <a class="dropdown-item" href="{% url 'categories' 'horror' %}">رعب</a>
+    <a class="dropdown-item" href="{% url 'categories' 'adventures' %}">مغامرات</a>
+    <a class="dropdown-item" href="{% url 'categories' 'racing-cars' %}">السباق والسيارات</a>
+    <a class="dropdown-item" href="{% url 'categories' 'reality-simulation' %}">محاكاة الواقع</a>
+    <a class="dropdown-item" href="{% url 'categories' 'sport' %}">رياضة</a>
+    <a class="dropdown-item" href="{% url 'categories' 'intelligence' %}">ذكاء</a>
+    <a class="dropdown-item" href="{% url 'categories' 'straighten' %}">تصويب</a>
+    <a class="dropdown-item" href="{% url 'categories' 'old-games' %}">العاب قديمة</a>
+    <a class="dropdown-item" href="{% url 'categories' 'light-entertaining' %}">خفيفة و مسلية</a>
+    <a class="dropdown-item" href="{% url 'categories' 'fiction' %}">خيال علمي</a>
+  </div>
+</div>
+				</li>
+				
+			</ul>
+			<form action="{% url 'search_results' %}" method="get" class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+	</nav>
+	{% block content %}
+	{% endblock %}
+
+	<!-- Footer -->
+	<footer class="page-footer font-small blue pt-4">
+
+		<!-- Footer Links -->
+		<div class="container-fluid text-center text-md-left">
+
+			<!-- Grid row -->
+			<div class="row">
+
+				<!-- Grid column -->
+				<div class="col-md-4 mb-md-0 mb-4">
+
+					
+
+					<ul class="list-unstyled">
+						<li>
+							<a href="{% url 'categories' 'action' %}">أكشن</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'fighting' %}">قتال</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'strategy' %}">استراتيجية</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'horror' %}">رعب</a>
+						</li>
+
+						<li>
+							<a href="{% url 'categories' 'intelligence' %}">ذكاء</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'straighten' %}">تصويب</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'old-games' %}">العاب قديمة</a>
+						</li>
+					</ul>
+
+				</div>
+				<!-- Grid column -->
+
+				<hr class="clearfix w-100 d-md-none pb-3">
+
+				<!-- Grid column -->
+				<div class="col-md-4 mb-md-0 mb-4">
+
+					
+
+					<ul class="list-unstyled">
+						<li>
+							<a href="{% url 'categories' 'adventures' %}">مغامرات</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'racing-cars' %}">السباق والسيارات</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'reality-simulation' %}">محاكاة الواقع</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'sport' %}">رياضة</a>
+						</li>
+
+						<li>
+							<a href="{% url 'categories' 'light-entertaining' %}">خفيفة و مسلية</a>
+						</li>
+						<li>
+							<a href="{% url 'categories' 'fiction' %}">خيال علمي</a>
+						</li>
+					</ul>
+
+				</div>
+				<!-- Grid column -->
+
+				<!-- Grid column -->
+				<div class="col-md-4 mb-md-0 mb-4">
+
+					
+
+					<ul class="list-unstyled">
+						<li>
+							<a href="#!"><i class="fab fa-facebook-f" style="margin-right: 8px;"></i>  Facebook </a>
+						</li>
+						<br>
+						<li>
+							<a href="#!"><i class="fab fa-twitter">  Twitter </i></a>
+						</li>
+						<br>
+						<li>
+							<a href="#!"><i class="fab fa-instagram" style="margin-right: 5px;"></i>  Instagram</a>
+						</li>
+					</ul>
+
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row -->
+
+		</div>
+		<!-- Footer Links -->
+
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3" style="color: white;">© 2019 Copyright:
+			<a href="https://mdbootstrap.com/education/bootstrap/"> gaming.com</a>
+		</div>
+		<!-- Copyright -->
+
+	</footer>
+	<!-- Footer -->
+
+	</div>
+
+<link rel="stylesheet" href="{% static 'css/stylle.css' %}">
+</body>
+</html>
